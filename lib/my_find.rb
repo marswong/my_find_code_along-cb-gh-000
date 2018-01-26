@@ -5,7 +5,12 @@ def my_find(collection)
     i = 0
     result = nil
     while i < collection.length
-      i += 1
+      if yield(collection[i])
+        result = collection[i]
+        break
+      else
+        i += 1        
+      end
     end
     result
   else
